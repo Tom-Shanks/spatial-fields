@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "records": 18272,
+  "unitOfCount": "exported crown feature records",
+  "heightField": "height_max",
+  "heightMeaning": "maximum value within each crown polygon in the 1 m LiDAR-derived canopy height model",
+  "boundaryMethod": "unrounded source values; lower inclusive, upper exclusive",
+  "bands": [
+    {"label":"0–<6 m","count":2969,"counts":[19,7,231,57,2655],"summary":"Other deciduous: 2,655 · conifer: 231"},
+    {"label":"6–<12 m","count":6520,"counts":[659,35,743,469,4614],"summary":"Other deciduous: 4,614 · conifer: 743"},
+    {"label":"12–<18 m","count":5809,"counts":[841,125,858,686,3299],"summary":"Other deciduous: 3,299 · conifer: 858 · ash: 841"},
+    {"label":"18 m+","count":2974,"counts":[106,995,525,325,1023],"summary":"Other deciduous: 1,023 · elm: 995"}
+  ],
+  "quality": {
+    "zeroHeightRecords": 12,
+    "heightClipM": 45,
+    "heightClipRecords": 1,
+    "uniqueSourceCrownIds": 18141,
+    "sourceIdsUsedTwice": 131,
+    "classMeaning": "model-predicted forestry management groups; risk labels do not establish disease, infestation, or field-confirmed species"
+  },
+  "sha256": {
+    "sourceFeatures": "8dfa7a2931904ce053cd63f980aaa419db5fde4b1e2670f8add2719ad085bc93",
+    "crownsBin": "72a250c68cbe9292fdafccd9a389045e1aacca76b8fdd6a4a68ef3a92f7a2dc0",
+    "canopyHeightModel": "25e39cd3d61b298892bdd072c7c891c6f8037debbecbb90627e96deea13c6adb"
+  }
+}

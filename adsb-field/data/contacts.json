@@ -1,0 +1,30 @@
+{
+  "records": 60000,
+  "sourceRecords": 158909,
+  "recordBytes": 8,
+  "fields": [
+    "bearing_deg:u16",
+    "range_10m:u16",
+    "altitude_10ft:u16",
+    "category:u8",
+    "pad:u8"
+  ],
+  "categories": {
+    "0": "civilian",
+    "1": "usaf",
+    "2": "army"
+  },
+  "maxRangeKm": 132,
+  "plotRangeKm": 132,
+  "maxAltitudeFt": 81200,
+  "counts": {
+    "civilian": 157593,
+    "usaf": 699,
+    "army": 617
+  },
+  "keptCounts": {
+    "civilian": 58684,
+    "usaf": 699,
+    "army": 617
+  }
+}

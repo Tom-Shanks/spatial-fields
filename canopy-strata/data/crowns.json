@@ -1,0 +1,40 @@
+{
+  "records": 18272,
+  "recordBytes": 10,
+  "fields": [
+    "x_m:u16",
+    "y_m:u16",
+    "height_dm:u16",
+    "area_m2:u16",
+    "class:u8",
+    "pad:u8"
+  ],
+  "extentM": [
+    2569.9285714285797,
+    2218.0
+  ],
+  "maxHeightM": 45.0,
+  "maxAreaM2": 832.0,
+  "classes": [
+    "Ash_EAB_Risk",
+    "Elm_DED_Risk",
+    "Conifer",
+    "Maple",
+    "Other_Deciduous"
+  ],
+  "labels": {
+    "Ash_EAB_Risk": "Ash (EAB risk)",
+    "Elm_DED_Risk": "Elm (DED risk)",
+    "Conifer": "Conifer",
+    "Maple": "Maple",
+    "Other_Deciduous": "Other deciduous"
+  },
+  "counts": {
+    "Ash_EAB_Risk": 1625,
+    "Elm_DED_Risk": 1162,
+    "Conifer": 2357,
+    "Maple": 1537,
+    "Other_Deciduous": 11591
+  },
+  "heightP99": 23.9606494140625
+}
