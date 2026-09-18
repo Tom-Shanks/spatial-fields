@@ -1,0 +1,43 @@
+/* Bat survey instruments. Same grammar as canopy/adsb: toolbar, field, legend, note.
+   Plate colors follow fig.module.css; everything else is the site gray scale. */
+.hero{margin:0 0 40px}
+.hero .toolbar{padding-top:0}
+.hero .field{aspect-ratio:1.9}
+@media(max-width:760px){.hero .field{aspect-ratio:1.25}}
+.figure{margin:0 0 36px;--ink:#171717;--muted:#737373;--line:#e5e5e5;--plate:#f7f5f0;--plateLine:#e6e2da;--blue:#246438;--orange:#9a5b20;color:var(--ink)}
+:global(.dark) .figure{--ink:#f5f5f5;--muted:#a3a3a3;--line:#262626;--plate:#141814;--plateLine:#2b332d;--blue:#78b88a;--orange:#d39a58}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;font:11px/1.6 var(--font-mono),monospace;letter-spacing:.08em;color:var(--muted)}
+.toolbar b{display:block;font-weight:500;letter-spacing:.13em;color:var(--ink)}
+.controls{display:flex;gap:2px}
+.controls button{min-height:44px;padding:10px 14px;border:1px solid transparent;border-radius:2px;background:transparent;font:12px/1 var(--font-mono),monospace;color:var(--muted);cursor:pointer}
+.controls button[aria-pressed=true]{border-color:var(--line);background:#f5f5f5;color:var(--ink)}
+:global(.dark) .controls button[aria-pressed=true]{background:#262626}
+.controls button:focus-visible,.field:focus-visible,.play:focus-visible{outline:2px solid #246438;outline-offset:3px}
+.field{position:relative;width:100%;aspect-ratio:1.75;overflow:hidden;background:transparent;border:0;cursor:grab;touch-action:pan-y;outline:none}
+.field[data-dragging=true]{cursor:grabbing}
+.canvas,.fallback{position:absolute;inset:0;width:100%;height:100%;transition:opacity .2s}
+.canvas{display:block}
+.canvas{opacity:0}.field[data-ready=true] .canvas{opacity:1}
+.fallback{object-fit:cover;pointer-events:none}.field[data-ready=true] .fallback{opacity:0}
+.axis{position:absolute;bottom:8px;right:12px;left:12px;text-align:right;font:10px/1.5 var(--font-mono),monospace;color:var(--muted);pointer-events:none;letter-spacing:.04em}
+.hint{position:absolute;left:12px;bottom:8px;font:10px/1.5 var(--font-mono),monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);pointer-events:none}
+.fail{position:absolute;inset:0;display:none;place-items:center;font:12px/1.6 var(--font-mono),monospace;color:var(--muted);padding:24px;text-align:center}
+.field[data-failed=true] .fail{display:grid}
+.row{display:flex;align-items:center;gap:14px;margin:12px 0 0;flex-wrap:wrap}
+.play{min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:2px;background:transparent;color:var(--ink);font:12px/1 var(--font-mono),monospace;letter-spacing:.08em;padding:0 14px;cursor:pointer}
+.time{font:12.5px/1 var(--font-mono),monospace;color:var(--muted);font-variant-numeric:tabular-nums}
+.note{font-size:14px;line-height:1.65;color:#525252;max-width:64ch;margin:12px 0 0}
+:global(.dark) .note{color:#d4d4d4}
+@media(max-width:760px){.field{aspect-ratio:1.15}.toolbar{gap:8px;letter-spacing:.02em}.controls button{padding:10px 8px}}
+@media(prefers-reduced-motion:reduce){.canvas,.fallback{transition:none}}
+
+/* hour × night heatmap */
+.heat{position:relative;background:transparent;border:0;overflow:hidden}
+.heat svg{display:block;width:100%;height:auto}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:#fff;font:12px/1.4 var(--font-mono),monospace;padding:6px 8px;border-radius:2px;white-space:nowrap;transform:translate(-50%,-115%);opacity:0;transition:opacity .08s}
+.tip[data-on=true]{opacity:1}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font:12px/1 var(--font-mono),monospace;color:var(--muted);margin:10px 0 0}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{display:inline-block;width:14px;height:10px;border-radius:2px;border:1px solid var(--line)}
+
+:global(.dark) .tip{color:#171717}
