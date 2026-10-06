@@ -1,6 +1,6 @@
 # spatial-fields
 
-Six interactive data visualizations from [tomshanks.dev](https://tomshanks.dev), each built from data I collected or processed myself. Components are React client components lifted from the site (Next.js 14, React 18, CSS modules). The original three fields use raw WebGL. The bat call and sound fields use Three.js, loaded on demand.
+Seven interactive data visualizations from [tomshanks.dev](https://tomshanks.dev), each built from data I collected or processed myself. Components are React client components lifted from the site (Next.js 14, React 18, CSS modules). The original three fields use raw WebGL. The bat call and sound fields use Three.js, loaded on demand. The orbit globe is plain canvas 2D.
 
 Every visualization animates with page scroll first, then hands control to the visitor: drag to rotate, arrow keys when focused, double-click or `R` to reset. Reduced-motion and no-WebGL fallbacks are handled in each component.
 
@@ -10,6 +10,7 @@ Every visualization animates with page scroll first, then hands control to the v
 | [`canopy-strata/`](canopy-strata) | [/projects/denver-urban-tree-classification](https://tomshanks.dev/projects/denver-urban-tree-classification) | 18,272 tree crowns segmented from USGS 3DEP LiDAR and classified from NAIP + Sentinel-2 features, 180 KB | Plan view colored by class and sized by canopy area; on scroll the neighborhood tilts and separates into LiDAR-measured height strata (0–6, 6–12, 12–18, 18+ m), each labeled with its real composition. |
 | [`received-surface/`](received-surface) | [/](https://tomshanks.dev/) | The 640 px visible-band METEOR-M2 4 image received 2026-09-14 (60 KB), sampled on the GPU into 25,625 points | The homepage hero. Every point is a received pixel; at rest it floats as a particle surface that answers the pointer, and scrolling resolves it back into the source frame. Raw WebGL, no library. |
 | [`bat-survey/`](bat-survey) | [/projects/backyard-bat-survey](https://tomshanks.dev/projects/backyard-bat-survey) | 2,228 BatDetect2 call detections, one quantized three-second spectrogram, hourly aggregates, and one slowed audio clip | Three linked views: detections move from clock time into measured call shape, spectrogram amplitude lifts into relief, and a heatmap compares activity by hour and night. |
+| [`orbit-globe/`](orbit-globe) | [/projects/rfpi](https://tomshanks.dev/projects/rfpi) | 120 of 255 RFPI passes with saved orbital inputs, 14 September to 4 October 2026, plus 42 SatDump composites | Every placeable pass over Denver on the WGS84 ellipsoid: dashed SGP4 orbits from each pass's saved TLE, a dot where recording started, NASA Blue Marble underneath. Scroll, Play or scrub the timeline; select a dot to see what was received and open its imagery. |
 
 ## What they do
 
@@ -20,6 +21,10 @@ Every visualization animates with page scroll first, then hands control to the v
 
 | ![Bat calls arranged by measured shape](bat-survey/data/field-b.webp) | ![Spectrogram amplitude mapped to display height](bat-survey/data/field-c.webp) | ![BatDetect2 detections by local hour and night](bat-survey/hour-heatmap.webp) |
 | `bat-survey / call field` | `bat-survey / sound relief` | `bat-survey / hourly heatmap` |
+
+| ![Passes replaying over Denver on the WGS84 globe](orbit-globe/orbit-globe.gif) |
+|:-:|
+| `orbit-globe` |
 
 ## Using a component
 
@@ -36,6 +41,7 @@ npm i react react-dom three
 - **ADS-B**: 1090 MHz broadcasts → RTL-SDR → readsb → SBS log → PostgreSQL/PostGIS. The packer samples 60,000 of 159,814 position reports and writes bearing/distance/altitude as local offsets only; no receiver coordinates are included.
 - **Canopy**: crowns by watershed segmentation on the canopy-height model; class predictions from the trained pipeline (69.0% accuracy on a random split, 66.4% with whole city blocks held out). Local metre offsets only.
 - **Received surface**: SatDump MSU-MR visible composite from a 65° METEOR-M2 4 pass, 137.9 MHz LRPT, Raspberry Pi 3B + RTL-SDR Blog V4, Denver. Downscaled to 640 px; no other processing.
+- **Orbit globe**: Raspberry Pi 3B + RTL-SDR Blog V4, Denver. METEOR LRPT at 137.9 MHz decoded with SatDump; ISS APRS at 437.825 MHz decoded with multimon-ng; AO-73 audio recorded but not decoded. Orbits are SGP4 predictions from each pass's archived TLE (TEME to ITRS, WGS84). No receiver coordinates, pass IDs, elevations or azimuths are included.
 - **Bat survey**: AudioMoth recordings at 250 kHz from seven nights in June 2026. BatDetect2 supplied the exported call measurements; the hourly view aggregates those detections. The sound relief uses one three-second clip with relative spectral level mapped to display height. Calls are not individual animals, and species identification remains probabilistic.
 
 MIT. Tom Shanks, Denver.

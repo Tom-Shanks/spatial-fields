@@ -1,0 +1,25 @@
+.field{position:relative;width:100%;aspect-ratio:5/3;overflow:hidden;border:0;background:transparent;touch-action:pan-y;cursor:grab;outline:none;user-select:none;-webkit-user-select:none}.field[data-dragging=true]{cursor:grabbing}.field[data-hover=true]{cursor:pointer}.field:focus-visible{outline:3px solid #237044;outline-offset:3px}
+.canvas{position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .25s linear}
+.label{position:absolute;z-index:2;font:10px/1.2 var(--font-mono),monospace;letter-spacing:.1em;text-transform:uppercase;color:#26332d;background:rgba(255,255,255,.82);padding:5px 7px;pointer-events:none}.topLabel{top:12px;left:12px}.timeLabel{bottom:12px;left:12px}.dragLabel{right:12px;bottom:12px}
+:global(.dark) .label{color:#e6ebe7;background:rgba(17,24,39,.78)}
+.caption{display:flex;justify-content:space-between;gap:20px;margin-top:12px;font-size:13px;line-height:1.7;color:#666;min-height:3.4em}.caption strong{font-weight:500;color:#171717}.caption span{display:block}.caption button{white-space:nowrap;font-size:12px;color:#666;text-decoration:underline;text-underline-offset:3px;min-height:32px;align-self:flex-start}
+:global(.dark) .caption,:global(.dark) .caption button{color:#aaa}:global(.dark) .caption strong{color:#f5f5f5}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:4px;font:11px/1.6 var(--font-mono),monospace;letter-spacing:.04em;color:#737373}.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:0}
+:global(.dark) .legend{color:#9aa0a6}
+@media(max-width:760px){.label{font-size:9px;padding:4px 5px}.topLabel{top:8px;left:8px}.timeLabel{bottom:8px;left:8px}.dragLabel{right:8px;bottom:8px}.field{aspect-ratio:1/1}.caption{flex-direction:column;gap:4px}}
+/* Same grammar as the canopy, ADS-B and bat fields: toolbar, field, timeline, caption. */
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;font:11px/1.6 var(--font-mono),monospace;letter-spacing:.08em;color:#737373}.toolbar b{display:block;font-weight:500;letter-spacing:.13em;color:#171717}
+.controls{display:flex;gap:2px}.controls button{min-height:44px;padding:10px 14px;border:1px solid transparent;border-radius:2px;background:transparent;font:12px/1 var(--font-mono),monospace;color:#737373;cursor:pointer}.controls button[aria-pressed=true]{border-color:#e5e5e5;background:#f5f5f5;color:#171717}.controls button:disabled{opacity:.45;cursor:default}
+:global(.dark) .toolbar{color:#a3a3a3}:global(.dark) .toolbar b{color:#f5f5f5}:global(.dark) .controls button{color:#a3a3a3}:global(.dark) .controls button[aria-pressed=true]{border-color:#262626;background:#262626;color:#f5f5f5}
+.scrubber{display:grid;grid-template-columns:1fr 1fr;margin-top:10px;font:10px/1.4 var(--font-mono),monospace;letter-spacing:.08em;text-transform:uppercase;color:#737373}.scrubber input{grid-column:1/-1;width:100%;height:28px;accent-color:#246438;cursor:pointer;margin:0}.scrubber span:last-child{text-align:right}
+:global(.dark) .scrubber{color:#a3a3a3}:global(.dark) .scrubber input{accent-color:#78b88a}
+@media(max-width:760px){.toolbar{flex-direction:column;align-items:flex-start;gap:8px}.controls{width:100%}.controls button{flex:1}}
+/* Pass imagery opens inside the globe frame and closes back to the uncluttered view. */
+.stage{position:relative}
+.viewer{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;gap:8px;padding:10px;background:rgba(255,255,255,.96)}
+.viewer img{flex:1;min-height:0;width:100%;height:auto;object-fit:contain;background:#111}
+.viewer p{font-size:12px;line-height:1.5;color:#666;margin:0}
+.viewerBar{display:flex;justify-content:space-between;align-items:center;gap:12px;font:10px/1.4 var(--font-mono),monospace;letter-spacing:.08em;text-transform:uppercase;color:#26332d}
+.viewerBar button{min-height:36px;padding:6px 12px;border:1px solid #e5e5e5;border-radius:2px;background:transparent;font:11px/1 var(--font-mono),monospace;color:inherit;cursor:pointer}
+:global(.dark) .viewer{background:rgba(12,14,16,.95)}:global(.dark) .viewer p{color:#aaa}:global(.dark) .viewerBar{color:#e6ebe7}:global(.dark) .viewerBar button{border-color:#333}
+.captionActions{display:flex!important;gap:16px;align-items:flex-start}
