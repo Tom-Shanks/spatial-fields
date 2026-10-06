@@ -26,7 +26,7 @@ category      u8    operator class from the 520,000-aircraft reference index
 pad           u8
 ```
 
-Records are a uniform sample of 158,909 position reports in the documented snapshot. The full snapshot measured max range 131.92 km, p95 53.94 km, median 15.95 km. Only receiver-relative values are stored; the receiver location is not in the data or the code.
+Records are a uniform sample of 158,909 position reports in the documented snapshot. The full snapshot measured max range 131.92 km, p95 53.94 km, median 15.95 km. Only receiver-relative values are stored.
 
 ## Pipeline behind the data
 
