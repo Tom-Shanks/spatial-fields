@@ -38,7 +38,7 @@ npm i react react-dom three
 
 ## Data provenance
 
-- **ADS-B**: 1090 MHz broadcasts → RTL-SDR → readsb → SBS log → PostgreSQL/PostGIS. The packer samples 60,000 of 159,814 position reports and writes bearing/distance/altitude as local offsets only; no receiver coordinates are included.
+- **ADS-B**: 1090 MHz broadcasts → RTL-SDR → readsb → SBS log → PostgreSQL/PostGIS. The published export contains 60,000 of 158,909 receiver-relative source rows. The packer keeps all records labeled `usaf` or `army` and randomly thins the `civilian` category with seed 7; the display is not a uniform sample and its category proportions do not describe traffic prevalence. It writes bearing/distance/altitude as local offsets only; no receiver coordinates are included.
 - **Canopy**: crowns by watershed segmentation on the canopy-height model; class predictions from the trained pipeline (69.0% accuracy on a random split, 66.4% with whole city blocks held out). Local metre offsets only.
 - **Received surface**: SatDump MSU-MR visible composite from a 65° METEOR-M2 4 pass, 137.9 MHz LRPT, Raspberry Pi 3B + RTL-SDR Blog V4, Denver. Downscaled to 640 px; no other processing.
 - **Orbit globe**: Raspberry Pi 3B + RTL-SDR Blog V4, Denver. METEOR LRPT at 137.9 MHz decoded with SatDump; ISS APRS at 437.825 MHz decoded with multimon-ng; AO-73 audio recorded but not decoded. Orbits are SGP4 predictions from each pass's archived TLE (TEME to ITRS, WGS84). No receiver coordinates, pass IDs, elevations or azimuths are included.
