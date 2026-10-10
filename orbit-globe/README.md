@@ -35,7 +35,7 @@ image        { src, width, height } for passes with a composite
 
 ## How the geometry is built
 
-Each saved TLE is propagated with SGP4 through Skyfield, converted from TEME into the Earth-fixed ITRS frame, and stored as ECEF kilometres on WGS84. The TLEs were less than a day old at capture on average and never more than two days old, so position error is on the order of a few kilometres, well under a pixel at this scale. The basemap is ray-cast per pixel onto the same ellipsoid and sampled at geodetic latitude and longitude, so the orbits and the imagery share one geometry.
+Each saved TLE is propagated with SGP4 through Skyfield, converted from TEME into the Earth-fixed ITRS frame, and stored as ECEF kilometres on WGS84. The TLEs were less than a day old at capture on average and never more than two days old. A position error on the order of a few kilometres is an estimate based on element age, not an accuracy measured against a reference trajectory. No validated positional-error bound is claimed for this archive. The basemap is ray-cast per pixel onto the same ellipsoid and sampled at geodetic latitude and longitude, so the orbits and the imagery share one geometry.
 
 ## Provenance and limits
 
