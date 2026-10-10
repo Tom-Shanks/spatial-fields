@@ -26,7 +26,7 @@ category      u8    operator class from the 520,000-aircraft reference index
 pad           u8
 ```
 
-Records are a uniform sample of 158,909 position reports in the documented snapshot. The full snapshot measured max range 131.92 km, p95 53.94 km, median 15.95 km. Only receiver-relative values are stored.
+The source export contains 158,909 position reports. The packer retains all 699 records labeled `usaf` and all 617 labeled `army`, then selects 58,684 of 157,593 `civilian` records using random seed 7. This is not a uniform sample: category proportions in the rendered field must not be used to estimate traffic prevalence. These labels come from the reference index, not from identification by the receiver. The full snapshot measured max range 131.92 km, p95 53.94 km, median 15.95 km; these are separate from the rounded 132 km plot extent. Only receiver-relative values are stored.
 
 ## Pipeline behind the data
 
